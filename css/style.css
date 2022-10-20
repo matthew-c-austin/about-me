@@ -89,6 +89,7 @@ a.active {
 #biography p {
     text-align: justify;
 }
+
 /* Education History section
 ==================================================*/
 
@@ -103,7 +104,6 @@ a.active {
     text-transform: capitalize;
     font-size: 20px;
     letter-spacing: 1px;
-
 }
 /* Work Experience section
 ==================================================*/
@@ -119,7 +119,6 @@ a.active {
     text-transform: capitalize;
     font-size: 20px;
     letter-spacing: 1px;
-
 }
 
 #workExperience li {
