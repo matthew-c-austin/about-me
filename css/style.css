@@ -1,0 +1,144 @@
+/* General
+==================================================*/
+body {
+    margin: 0;
+    font-size: 18px;
+    line-height: 24px;
+    background-color: rgb(232, 230, 230);
+}
+
+h2 {
+    text-transform: capitalize;
+    color: #444;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.h-50 {
+    height: 50px;
+}
+
+/* Header
+==================================================*/
+
+header {
+    text-align: center;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #dce8dc;
+}
+
+header h1 {
+    color: #444;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+header .h-50 {
+    background-color: #dce8dc;
+}
+
+nav {
+    background-color: #dce8dc;
+}
+
+nav ul {
+    display: inline-block;
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+nav li {
+    display: inline-block;
+    margin: 20px;
+}
+
+nav li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: #444;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #425BB5;
+    text-decoration: none;
+}
+
+a.active {
+    color: #425BB5;
+}
+
+/* Biography section
+==================================================*/
+
+#biography {
+    margin: 15px;
+    border: 10px outset #dce8dc;
+    padding: 200px 10px;
+    letter-spacing: 1px;
+}
+
+#biography p {
+    text-align: justify;
+}
+/* Education History section
+==================================================*/
+
+#educationHistory {
+    margin: 15px;
+    border: 10px outset #dce8dc;
+    padding: 200px 10px;
+}
+
+#educationHistory p {
+    padding: 0px;
+    text-transform: capitalize;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+}
+/* Work Experience section
+==================================================*/
+
+#workExperience {
+    margin: 15px;
+    border: 10px outset #dce8dc;
+    padding: 100px 10px;
+}
+
+#companies {
+    padding: 0px;
+    text-transform: capitalize;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+}
+
+#workExperience li {
+    list-style-type: none;
+    margin: 30px 0px 30px 0px;
+}
+/* Goals section
+==================================================*/
+
+#goals {
+    margin: 15px;
+    border: 10px outset #dce8dc;
+    padding: 200px 10px;
+    letter-spacing: 1px;
+}
+
+/* Footer section
+==================================================*/
+
+footer {
+    text-align: center;
+}
