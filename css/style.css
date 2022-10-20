@@ -32,7 +32,7 @@ header {
 
 header h1 {
     color: #444;
-    font-size: 40px;
+    font-size: 50px;
     margin-bottom: 0;
 }
 
@@ -102,7 +102,7 @@ a.active {
     padding: 0px;
     text-transform: capitalize;
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
 }
 /* Work Experience section
@@ -118,7 +118,7 @@ a.active {
     padding: 0px;
     text-transform: capitalize;
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
 }
 
