@@ -25,11 +25,11 @@ for (let i = 0; i < questionsArray.length; i++) {
   let userAnswer = prompt(questionsArray[i]).toLowerCase();
   if (userAnswer === answersArray[i] || userAnswer === answersArray[i].charAt(0)) {
     // console.log('Question' + i + ": Correct!");
-    alert('Question ' + i + ': Correct!');
+    alert('Question ' + i + 1 + ': Correct!');
     scoreCount++;
   } else {
     // console.log('Question' + i + ': Wrong stupid!')
-    alert('Question ' + i + ': Wrong, stupid!');
+    alert('Question ' + i + 1 + ': Wrong, stupid!');
   }
 }
 
