@@ -135,6 +135,16 @@ a.active {
     letter-spacing: 1px;
 }
 
+/* Top Ten Travel section
+==================================================*/
+
+#topTenTravel {
+    margin: 15px;
+    border: 10px outset #dce8dc;
+    padding: 200px 10px;
+    letter-spacing: 1px;
+}
+
 /* Footer section
 ==================================================*/
 
