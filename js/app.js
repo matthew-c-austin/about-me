@@ -51,9 +51,10 @@ for (let i = 0; i < numberOfQuestions; i++) {
 
   // For question 6, give the user 4 chances at guessing the random number using a for loop
   } else if (questionNumber === 6) {
+    let attemptsLeft = 4;
     for (let j = 0; j < 4; j++) {
       userAnswer = prompt(questionsArray[i]);
-      let attemptsLeft = 4 - j - 1;
+      attemptsLeft--;
       if (userAnswer < randomNumberAnswer) {
         alert(`Too low. You have ${attemptsLeft} attempts left.`);
       } else if (userAnswer > randomNumberAnswer) {
@@ -71,19 +72,20 @@ for (let i = 0; i < numberOfQuestions; i++) {
 
   // For question 7, give the user 6 attempts at guessing correctly using another for loop.
   } else {
+    let attemptsLeft = 6;
     for (let j = 0; j < 6; j++) {
       userAnswer = prompt(questionsArray[i]).toLowerCase();
-      let attemptsLeft = 6 - j - 1;
+      attemptsLeft--;
       if (userAnswer in topThreeTravelAnswers) {
         alert(`Question ${questionNumber}: Correct!`);
         scoreCount++;
         break;
-      } else {
-        alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
-      }
+      } 
+      
       if (attemptsLeft === 0) {
         alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${topThreeTravelAnswers[0]}, ${topThreeTravelAnswers[1]}, or ${topThreeTravelAnswers[2]}.`);
-      }
+      } else {
+        alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
     }
   }
 }
