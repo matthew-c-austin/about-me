@@ -4,7 +4,7 @@
 const userName = prompt('Stop. Who goes there?');
 
 // Set the questions that are part of the quiz
-const question1 = 'Was I born in New York, ' + userName + '?';
+const question1 = `Was I born in New York, ${userName}?`;
 const question2 = 'Was I born in August, if you\'re so smart?';
 const question3 = 'Did I go to Kansas State University?';
 const question4 = 'Did I quit Spirit in 2014?';
@@ -23,7 +23,7 @@ const topThreeTravelAnswers = {['japan'] : true, ['new zealand'] : true, ['icela
 let scoreCount = 0;
 
 //Acknowledge the user
-alert('Oh! ' + userName +'! I didn\'t recognize you. Come on in.');
+alert(`Oh! ${userName}! I didn't recognize you. Come on in.`);
 
 // Start the game
 alert('Let\'s play a game. Answer some trivia about me. Go for a high score! Or a low score if you\'re too afraid of success. Acceptable answers are in the form yes/no and y/n, unless otherwise noted.');
@@ -42,11 +42,11 @@ for (let i = 0; i < numberOfQuestions; i++) {
     userAnswer = prompt(questionsArray[i]).toLowerCase();
     if (userAnswer === yesNoAnswersArray[i] || userAnswer === yesNoAnswersArray[i].charAt(0)) {
     // console.log('Question' + (questionNumber) + ": Correct!");
-      alert('Question ' + (questionNumber) + ': Correct!');
+      alert(`Question ${questionNumber}: Correct!`);
       scoreCount++;
     } else {
     // console.log('Question' + (questionNumber) + ': Wrong stupid!')
-      alert('Question ' + (questionNumber) + ': Wrong, stupid!');
+      alert(`Question ${questionNumber}: Wrong, stupid!`);
     }
 
   // For question 6, give the user 4 chances at guessing the random number using a for loop
@@ -55,16 +55,16 @@ for (let i = 0; i < numberOfQuestions; i++) {
       userAnswer = prompt(questionsArray[i]);
       let attemptsLeft = 4 - j - 1;
       if (userAnswer < randomNumberAnswer) {
-        alert('Too low. You have ' + attemptsLeft + ' attempts left.');
+        alert(`Too low. You have ${attemptsLeft} attempts left.`);
       } else if (userAnswer > randomNumberAnswer) {
-        alert('Too high. You have ' + attemptsLeft + ' attempts left.');
+        alert(`Too high. You have ${attemptsLeft} attempts left.`);
       } else {
-        alert('Question ' + (questionNumber) + ': Correct!');
+        alert(`Question ${questionNumber}: Correct!`);
         scoreCount++;
         break;
       }
       if (attemptsLeft === 0) {
-        alert('Question ' + (questionNumber) + ': Incorrect. Pitiful. Even with a generous number of attempts you couldn\'t deduce that the answer was ' + randomNumberAnswer + '.');
+        alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${randomNumberAnswer}.`);
         break;
       }
     }
@@ -75,14 +75,14 @@ for (let i = 0; i < numberOfQuestions; i++) {
       userAnswer = prompt(questionsArray[i]).toLowerCase();
       let attemptsLeft = 6 - j - 1;
       if (userAnswer in topThreeTravelAnswers) {
-        alert('Question ' + (questionNumber) + ': Correct!');
+        alert(`Question ${questionNumber}: Correct!`);
         scoreCount++;
         break;
       } else {
-        alert('No...No that\'s wrong. You have three possible answers. Surely you can get just one. You have ' + attemptsLeft + ' attempts left.');
+        alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
       }
       if (attemptsLeft === 0) {
-        alert('Question ' + (questionNumber) + ': Incorrect. Pitiful. Even with a generous number of attempts you couldn\'t deduce that the answer was ' + topThreeTravelAnswers[0] + ', ' + topThreeTravelAnswers[1] + ', or ' + topThreeTravelAnswers[2] + '.');
+        alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${topThreeTravelAnswers[0]}, ${topThreeTravelAnswers[1]}, or ${topThreeTravelAnswers[2]}.`);
       }
     }
   }
@@ -90,9 +90,9 @@ for (let i = 0; i < numberOfQuestions; i++) {
 
 // Show the user their score
 if (scoreCount === numberOfQuestions) {
-  alert(userName + ', you genius. You got ' + scoreCount + ' out of ' + numberOfQuestions + ' questions correct! Thanks for playing!');
+  alert(`${userName}, you genius. You got ${scoreCount} out of ${numberOfQuestions} questions correct! Thanks for playing!`);
 } else if (scoreCount > 0) {
-  alert(userName + ', you middling talent. You got ' + scoreCount + ' out of ' + numberOfQuestions + ' questions correct. You could be better. And don\'t blame the fact that you can\'t actually see the content of the \'about me\' page until finishing the quiz. Take responsibility for your mediocrity. Thanks for playing.');
+  alert(`${userName}, you middling talent. You got ${scoreCount} out of ${numberOfQuestions} questions correct. You could be better. And don't blame the fact that you can't actually see the content of the 'about me' page until finishing the quiz. Take responsibility for your mediocrity. Thanks for playing.`);
 } else {
-  alert(userName + ', you pathetic worm. You got ' + scoreCount + ' out of ' + numberOfQuestions + ' questions correct. Could it be because this quiz happens before the page load event? No, it\'s definitely your fault. Thanks for playing.');
+  alert(`${userName}, you pathetic worm. You got ${scoreCount} out of ${numberOfQuestions} questions correct. Could it be because this quiz happens before the page load event? No, it's definitely your fault. Thanks for playing.`);
 }
