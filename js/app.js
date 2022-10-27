@@ -28,9 +28,6 @@ alert(`Oh! ${userName}! I didn't recognize you. Come on in.`);
 // Start the game
 alert('Let\'s play a game. Answer some trivia about me. Go for a high score! Or a low score if you\'re too afraid of success. Acceptable answers are in the form yes/no and y/n, unless otherwise noted.');
 
-//Initialize a user answer
-let userAnswer = '';
-
 quizGame();
 
 function quizGame (){
@@ -42,7 +39,9 @@ function quizGame (){
 
     // For questions 1 - 5, a straight yes/no or y/n is checked
     if (questionNumber <= 5) {
+
       yesNoQuestions(questionNumber, questionsArray[i], yesNoAnswersArray[i]);
+
       // For question 6, give the user 4 chances at guessing the random number using a for loop
     } else if (questionNumber === 6) {
 
@@ -50,15 +49,17 @@ function quizGame (){
 
       // For question 7, give the user 6 attempts at guessing correctly using another for loop.
     } else {
-      topThreeTravel(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
-    
-  }
 
+      topThreeTravel(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
+
+    }
+    getScore();
+  }
 }
-  
+
 function yesNoQuestions (questionNumber, question, answer) {
-  userAnswer = prompt(question).toLowerCase();
-    
+  let userAnswer = prompt(question).toLowerCase();
+
   if (userAnswer === answer || userAnswer === answer.charAt(0)) {
     // console.log('Question' + (questionNumber) + ": Correct!");
     alert(`Question ${questionNumber}: Correct!`);
@@ -68,11 +69,11 @@ function yesNoQuestions (questionNumber, question, answer) {
     alert(`Question ${questionNumber}: Wrong, stupid!`);
   }
 }
-  
+
 function ranNumQuestion(questionNumber, question, answer, attempts){
   let attemptsLeft = attempts;
   for (let i = 0; i < attempts; i++) {
-    userAnswer = prompt(question);
+    let userAnswer = prompt(question);
     attemptsLeft--;
     if (userAnswer < answer) {
       alert(`Too low. You have ${attemptsLeft} attempts left.`);
@@ -93,7 +94,7 @@ function ranNumQuestion(questionNumber, question, answer, attempts){
 function topThreeTravel(questionNumber, question, answers, attempts){
   let attemptsLeft = attempts;
   for (let i = 0; i < attempts; i++) {
-    userAnswer = prompt(question).toLowerCase();
+    let userAnswer = prompt(question).toLowerCase();
     attemptsLeft--;
     if (userAnswer in answers) {
       alert(`Question ${questionNumber}: Correct!`);
@@ -109,11 +110,13 @@ function topThreeTravel(questionNumber, question, answers, attempts){
   }
 }
 
+function getScore(){
 // Show the user their score
-if (scoreCount === numberOfQuestions) {
-  alert(`${userName}, you genius. You got ${scoreCount} out of ${numberOfQuestions} questions correct! Thanks for playing!`);
-} else if (scoreCount > 0) {
-  alert(`${userName}, you middling talent. You got ${scoreCount} out of ${numberOfQuestions} questions correct. You could be better. And don't blame the fact that you can't actually see the content of the 'about me' page until finishing the quiz. Take responsibility for your mediocrity. Thanks for playing.`);
-} else {
-  alert(`${userName}, you pathetic worm. You got ${scoreCount} out of ${numberOfQuestions} questions correct. Could it be because this quiz happens before the page load event? No, it's definitely your fault. Thanks for playing.`);
+  if (scoreCount === numberOfQuestions) {
+    alert(`${userName}, you genius. You got ${scoreCount} out of ${numberOfQuestions} questions correct! Thanks for playing!`);
+  } else if (scoreCount > 0) {
+    alert(`${userName}, you middling talent. You got ${scoreCount} out of ${numberOfQuestions} questions correct. You could be better. And don't blame the fact that you can't actually see the content of the 'about me' page until finishing the quiz. Take responsibility for your mediocrity. Thanks for playing.`);
+  } else {
+    alert(`${userName}, you pathetic worm. You got ${scoreCount} out of ${numberOfQuestions} questions correct. Could it be because this quiz happens before the page load event? No, it's definitely your fault. Thanks for playing.`);
+  }
 }
