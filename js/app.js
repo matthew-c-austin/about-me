@@ -50,29 +50,15 @@ function quizGame (){
 
       // For question 7, give the user 6 attempts at guessing correctly using another for loop.
     } else {
-      let attemptsLeft = 6;
-      for (let j = 0; j < 6; j++) {
-        userAnswer = prompt(questionsArray[i]).toLowerCase();
-        attemptsLeft--;
-        if (userAnswer in topThreeTravelAnswers) {
-          alert(`Question ${questionNumber}: Correct!`);
-          scoreCount++;
-          break;
-        }
-
-        if (attemptsLeft === 0) {
-          alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${topThreeTravelAnswers[0]}, ${topThreeTravelAnswers[1]}, or ${topThreeTravelAnswers[2]}.`);
-        } else {
-          alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
-        }
-      }
-    }
+      topThreeTravel(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
+    
   }
-}
 
+}
+  
 function yesNoQuestions (questionNumber, question, answer) {
   userAnswer = prompt(question).toLowerCase();
-
+    
   if (userAnswer === answer || userAnswer === answer.charAt(0)) {
     // console.log('Question' + (questionNumber) + ": Correct!");
     alert(`Question ${questionNumber}: Correct!`);
@@ -82,7 +68,7 @@ function yesNoQuestions (questionNumber, question, answer) {
     alert(`Question ${questionNumber}: Wrong, stupid!`);
   }
 }
-
+  
 function ranNumQuestion(questionNumber, question, answer, attempts){
   let attemptsLeft = attempts;
   for (let i = 0; i < attempts; i++) {
@@ -100,6 +86,25 @@ function ranNumQuestion(questionNumber, question, answer, attempts){
     if (attemptsLeft === 0) {
       alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${answer}.`);
       break;
+    }
+  }
+}
+
+function topThreeTravel(questionNumber, question, answers, attempts){
+  let attemptsLeft = attempts;
+  for (let i = 0; i < attempts; i++) {
+    userAnswer = prompt(question).toLowerCase();
+    attemptsLeft--;
+    if (userAnswer in answers) {
+      alert(`Question ${questionNumber}: Correct!`);
+      scoreCount++;
+      break;
+    }
+
+    if (attemptsLeft === 0) {
+      alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${answers[0]}, ${answers[1]}, or ${answers[2]}.`);
+    } else {
+      alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
     }
   }
 }
