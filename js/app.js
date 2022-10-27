@@ -80,12 +80,13 @@ for (let i = 0; i < numberOfQuestions; i++) {
         alert(`Question ${questionNumber}: Correct!`);
         scoreCount++;
         break;
-      } 
-      
+      }
+
       if (attemptsLeft === 0) {
         alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${topThreeTravelAnswers[0]}, ${topThreeTravelAnswers[1]}, or ${topThreeTravelAnswers[2]}.`);
       } else {
         alert(`No...No that's wrong. You have three possible answers. Surely you can get just one. You have ${attemptsLeft} attempts left.`);
+      }
     }
   }
 }
