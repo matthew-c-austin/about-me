@@ -45,25 +45,9 @@ function quizGame (){
       yesNoQuestions(questionNumber, questionsArray[i], yesNoAnswersArray[i]);
       // For question 6, give the user 4 chances at guessing the random number using a for loop
     } else if (questionNumber === 6) {
-      let attemptsLeft = 4;
-      for (let j = 0; j < 4; j++) {
-        userAnswer = prompt(questionsArray[i]);
-        attemptsLeft--;
-        if (userAnswer < randomNumberAnswer) {
-          alert(`Too low. You have ${attemptsLeft} attempts left.`);
-        } else if (userAnswer > randomNumberAnswer) {
-          alert(`Too high. You have ${attemptsLeft} attempts left.`);
-        } else {
-          alert(`Question ${questionNumber}: Correct!`);
-          scoreCount++;
-          break;
-        }
-        if (attemptsLeft === 0) {
-          alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${randomNumberAnswer}.`);
-          break;
-        }
-      }
-      
+
+      ranNumQuestion(questionNumber, questionsArray[i], randomNumberAnswer, 4);
+
       // For question 7, give the user 6 attempts at guessing correctly using another for loop.
     } else {
       let attemptsLeft = 6;
@@ -90,12 +74,33 @@ function yesNoQuestions (questionNumber, question, answer) {
   userAnswer = prompt(question).toLowerCase();
 
   if (userAnswer === answer || userAnswer === answer.charAt(0)) {
-  // console.log('Question' + (questionNumber) + ": Correct!");
+    // console.log('Question' + (questionNumber) + ": Correct!");
     alert(`Question ${questionNumber}: Correct!`);
     scoreCount++;
   } else {
-  // console.log('Question' + (questionNumber) + ': Wrong stupid!')
+    // console.log('Question' + (questionNumber) + ': Wrong stupid!')
     alert(`Question ${questionNumber}: Wrong, stupid!`);
+  }
+}
+
+function ranNumQuestion(questionNumber, question, answer, attempts){
+  let attemptsLeft = attempts;
+  for (let i = 0; i < attempts; i++) {
+    userAnswer = prompt(question);
+    attemptsLeft--;
+    if (userAnswer < answer) {
+      alert(`Too low. You have ${attemptsLeft} attempts left.`);
+    } else if (userAnswer > answer) {
+      alert(`Too high. You have ${attemptsLeft} attempts left.`);
+    } else {
+      alert(`Question ${questionNumber}: Correct!`);
+      scoreCount++;
+      break;
+    }
+    if (attemptsLeft === 0) {
+      alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${answer}.`);
+      break;
+    }
   }
 }
 
