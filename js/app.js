@@ -42,16 +42,7 @@ function quizGame (){
 
     // For questions 1 - 5, a straight yes/no or y/n is checked
     if (questionNumber <= 5) {
-      userAnswer = prompt(questionsArray[i]).toLowerCase();
-      if (userAnswer === yesNoAnswersArray[i] || userAnswer === yesNoAnswersArray[i].charAt(0)) {
-        // console.log('Question' + (questionNumber) + ": Correct!");
-        alert(`Question ${questionNumber}: Correct!`);
-        scoreCount++;
-      } else {
-        // console.log('Question' + (questionNumber) + ': Wrong stupid!')
-        alert(`Question ${questionNumber}: Wrong, stupid!`);
-      }
-
+      yesNoQuestions(questionNumber, questionsArray[i], yesNoAnswersArray[i]);
       // For question 6, give the user 4 chances at guessing the random number using a for loop
     } else if (questionNumber === 6) {
       let attemptsLeft = 4;
@@ -72,7 +63,7 @@ function quizGame (){
           break;
         }
       }
-
+      
       // For question 7, give the user 6 attempts at guessing correctly using another for loop.
     } else {
       let attemptsLeft = 6;
@@ -92,6 +83,19 @@ function quizGame (){
         }
       }
     }
+  }
+}
+
+function yesNoQuestions (questionNumber, question, answer) {
+  userAnswer = prompt(question).toLowerCase();
+
+  if (userAnswer === answer || userAnswer === answer.charAt(0)) {
+  // console.log('Question' + (questionNumber) + ": Correct!");
+    alert(`Question ${questionNumber}: Correct!`);
+    scoreCount++;
+  } else {
+  // console.log('Question' + (questionNumber) + ': Wrong stupid!')
+    alert(`Question ${questionNumber}: Wrong, stupid!`);
   }
 }
 
