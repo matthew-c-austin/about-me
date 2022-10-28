@@ -3,21 +3,24 @@
 // Ask the user their name
 const userName = prompt('Stop. Who goes there?');
 
+// For the random number guess, generate a number between 1 and 20
+const minRandomNumber = 1;
+const maxRandomNumber = 20;
+const randomNumberAnswer = randomInteger(minRandomNumber, maxRandomNumber);
+
 // Set the questions that are part of the quiz
 const question1 = `Was I born in New York, ${userName}?`;
 const question2 = 'Was I born in August, if you\'re so smart?';
 const question3 = 'Did I go to Kansas State University?';
 const question4 = 'Did I quit Spirit in 2014?';
 const question5 = 'Is it expensive to have someone watch my dogs in my apartment on Christmas Day?';
-const question6 = 'Guess a number between 1 and 20. This, more than any other question, is testing your intelligence.';
+const question6 = `Guess a number between ${minRandomNumber} and ${maxRandomNumber}. This, more than any other question, is testing your intelligence.`;
 const question7 = 'Name one of the top 3 countries I would like to visit.';
 const questionsArray = [question1, question2, question3, question4, question5, question6, question7];
 const numberOfQuestions = questionsArray.length;
 
 // Set the answers and initialize a score count
 const yesNoAnswersArray = ['no', 'yes', 'no', 'no', 'yes'];
-// For the random number guess, generate a number between 1 and 20
-const randomNumberAnswer = Math.floor(Math.random() * 20) + 1;
 // Define a dictionary for question 7 with the correct answers for in place searching
 const topThreeTravelAnswers = {['japan'] : true, ['new zealand'] : true, ['iceland'] : true};
 let scoreCount = 0;
@@ -29,6 +32,13 @@ alert(`Oh! ${userName}! I didn't recognize you. Come on in.`);
 alert('Let\'s play a game. Answer some trivia about me. Go for a high score! Or a low score if you\'re too afraid of success. Acceptable answers are in the form yes/no and y/n, unless otherwise noted.');
 
 quizGame();
+
+//This function returns a random integer between min and max (both included)
+
+function randomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1 )) + min;
+
+}
 
 function quizGame (){
   // Loop through the questions
@@ -42,19 +52,19 @@ function quizGame (){
 
       yesNoQuestions(questionNumber, questionsArray[i], yesNoAnswersArray[i]);
 
-      // For question 6, give the user 4 chances at guessing the random number using a for loop
+      // For question 6, give the user 4 chances at guessing the random number.
     } else if (questionNumber === 6) {
 
       ranNumQuestion(questionNumber, questionsArray[i], randomNumberAnswer, 4);
 
-      // For question 7, give the user 6 attempts at guessing correctly using another for loop.
+      // For question 7, give the user 6 attempts at guessing correctly.
     } else {
 
-      topThreeTravel(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
+      travelQuestion(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
 
     }
-    getScore();
   }
+  showScore();
 }
 
 function yesNoQuestions (questionNumber, question, answer) {
@@ -91,7 +101,7 @@ function ranNumQuestion(questionNumber, question, answer, attempts){
   }
 }
 
-function topThreeTravel(questionNumber, question, answers, attempts){
+function travelQuestion (questionNumber, question, answers, attempts){
   let attemptsLeft = attempts;
   for (let i = 0; i < attempts; i++) {
     let userAnswer = prompt(question).toLowerCase();
@@ -110,7 +120,7 @@ function topThreeTravel(questionNumber, question, answers, attempts){
   }
 }
 
-function getScore(){
+function showScore(){
 // Show the user their score
   if (scoreCount === numberOfQuestions) {
     alert(`${userName}, you genius. You got ${scoreCount} out of ${numberOfQuestions} questions correct! Thanks for playing!`);
