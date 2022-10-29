@@ -25,16 +25,7 @@ const yesNoAnswersArray = ['no', 'yes', 'no', 'no', 'yes'];
 const topThreeTravelAnswers = {['japan'] : true, ['new zealand'] : true, ['iceland'] : true};
 let scoreCount = 0;
 
-//Acknowledge the user
-alert(`Oh! ${userName}! I didn't recognize you. Come on in.`);
-
-// Start the game
-alert('Let\'s play a game. Answer some trivia about me. Go for a high score! Or a low score if you\'re too afraid of success. Acceptable answers are in the form yes/no and y/n, unless otherwise noted.');
-
-quizGame();
-
 //This function returns a random integer between min and max (both included)
-
 function randomInteger(min, max){
   return Math.floor(Math.random() * (max - min + 1 )) + min;
 
@@ -52,12 +43,12 @@ function quizGame (){
 
       yesNoQuestions(questionNumber, questionsArray[i], yesNoAnswersArray[i]);
 
-      // For question 6, give the user 4 chances at guessing the random number.
+    // For question 6, give the user 4 chances at guessing the random number.
     } else if (questionNumber === 6) {
 
       ranNumQuestion(questionNumber, questionsArray[i], randomNumberAnswer, 4);
 
-      // For question 7, give the user 6 attempts at guessing correctly.
+    // For question 7, give the user 6 attempts at guessing correctly.
     } else {
 
       travelQuestion(questionNumber, questionsArray[i], topThreeTravelAnswers, 6);
@@ -71,11 +62,9 @@ function yesNoQuestions (questionNumber, question, answer) {
   let userAnswer = prompt(question).toLowerCase();
 
   if (userAnswer === answer || userAnswer === answer.charAt(0)) {
-    // console.log('Question' + (questionNumber) + ": Correct!");
     alert(`Question ${questionNumber}: Correct!`);
     scoreCount++;
   } else {
-    // console.log('Question' + (questionNumber) + ': Wrong stupid!')
     alert(`Question ${questionNumber}: Wrong, stupid!`);
   }
 }
@@ -96,7 +85,6 @@ function ranNumQuestion(questionNumber, question, answer, attempts){
     }
     if (attemptsLeft === 0) {
       alert(`Question ${questionNumber}: Incorrect. Pitiful. Even with a generous number of attempts you couldn't deduce that the answer was ${answer}.`);
-      break;
     }
   }
 }
@@ -130,3 +118,10 @@ function showScore(){
     alert(`${userName}, you pathetic worm. You got ${scoreCount} out of ${numberOfQuestions} questions correct. Could it be because this quiz happens before the page load event? No, it's definitely your fault. Thanks for playing.`);
   }
 }
+
+//Acknowledge the user
+alert(`Oh! ${userName}! I didn't recognize you. Come on in.`);
+
+// Start the game
+alert('Let\'s play a game. Answer some trivia about me. Go for a high score! Or a low score if you\'re too afraid of success. Acceptable answers are in the form yes/no and y/n, unless otherwise noted.');
+quizGame();
